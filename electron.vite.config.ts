@@ -1,6 +1,7 @@
 import { defineConfig } from 'electron-vite';
 import { defineConfig as defineViteConfig } from 'vite';
 import { resolve } from 'path';
+import viteESLint from 'vite-plugin-eslint';
 import viteCp from 'vite-plugin-cp';
 import viteZipPack from 'unplugin-zip-pack/vite';
 import PluginManifest from './manifest.json';
@@ -20,6 +21,11 @@ const BaseConfig = defineViteConfig({
 const ConfigBuilder = (type: 'main' | 'preload') => defineViteConfig({
   ...BaseConfig,
 
+  plugins: [
+    viteESLint({
+      fix: true,
+    }),
+  ],
   build: {
     minify: true,
     outDir: resolve(OUTPUT_DIR, `./${type}`),
@@ -38,6 +44,9 @@ export default defineConfig({
     ...BaseConfig,
 
     plugins: [
+      viteESLint({
+        fix: true,
+      }),
       viteCp({
         targets: [{ src: './manifest.json', dest: 'dist' }],
       }),
