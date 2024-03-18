@@ -1,0 +1,1 @@
+# LiteLoaderQQNT Plugin Template
