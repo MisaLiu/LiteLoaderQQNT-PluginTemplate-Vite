@@ -1,0 +1,11 @@
+{
+  "name": "lltemplate-vite",
+  "version": "1.0.0",
+  "description": "A plugin template for LiteLoaderQQNT, powered by Vite & Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MisaLiu",
+  "license": "GPL-3.0-only"
+}
