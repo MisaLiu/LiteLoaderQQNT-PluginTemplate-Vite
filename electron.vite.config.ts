@@ -22,6 +22,7 @@ const PluginChecker = viteChecker({
   typescript: true,
   eslint: {
     lintCommand: 'eslint --fix src/**/* --ext .js,.jsx,.ts,.tsx',
+    useFlatConfig: true,
   },
 });
 
