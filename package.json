@@ -13,12 +13,12 @@
   "devDependencies": {
     "@electron-toolkit/eslint-config-ts": "^1.0.1",
     "@electron-toolkit/tsconfig": "^1.0.1",
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
-    "@typescript-eslint/parser": "^7.2.0",
-    "electron": "^29.1.4",
-    "electron-vite": "^2.1.0",
-    "eslint": "^8.57.0",
-    "unplugin-zip-pack": "^1.0.1",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "electron": "^29.4.6",
+    "electron-vite": "^2.3.0",
+    "eslint": "^8.57.1",
+    "unplugin-zip-pack": "^1.0.3",
     "vite": "^6.2.3",
     "vite-plugin-checker": "^0.6.4",
     "vite-plugin-cp": "^4.0.8"
