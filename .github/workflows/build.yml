@@ -12,10 +12,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Get git short sha
       id: git_sha
       shell: bash
       run: echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_OUTPUT"
+    
+    - name: Get manifest
+      id: manifest_info
+      run: |
+        content=`cat ./manifest.json`
+        content="${content//'%'/'%25'}"
+        content="${content//$'\n'/'%0A'}"
+        content="${content//$'\r'/'%0D'}"
+        echo "::set-output name=manifest::$content"
+
     - name: Use pnpm
       uses: pnpm/action-setup@v2
       with:
@@ -31,6 +42,7 @@ jobs:
     - run: pnpm build
 
     - name: Upload build artifact
-      uses: actions/upload-pages-artifact@v3
+      uses: actions/upload-artifact@v3
       with:
-        path: ./*.zip
+        name: ${{ fromJson(steps.manifest_info.outputs.manifest).slug }}-${{ steps.git_sha.outputs.sha_short }}
+        path: dist/
