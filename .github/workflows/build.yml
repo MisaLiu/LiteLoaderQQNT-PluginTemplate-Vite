@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Get git short sha
+      id: git_sha
+      shell: bash
+      run: echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_OUTPUT"
+    - name: Use pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: latest
+        run_install: false
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.x'
+        cache: 'pnpm'
+
+    - run: pnpm install --frozen-lockfile
+    - run: pnpm build
+
+    - name: Upload build artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./*.zip
