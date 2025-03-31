@@ -4,8 +4,8 @@
   "description": "A plugin template for LiteLoaderQQNT, powered by Vite & Typescript",
   "main": "index.js",
   "scripts": {
-    "lint": "npx eslint --fix src/**/* --ext .js,.ts",
-    "build": "npx electron-vite build"
+    "lint": "eslint --fix src/**/* --ext .js,.ts",
+    "build": "electron-vite build"
   },
   "author": "MisaLiu",
   "license": "GPL-3.0-only",
