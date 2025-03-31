@@ -3,9 +3,10 @@
   "type": "extension",
   "name": "LLTemplate-Vite",
   "slug": "LLTemplate-Vite",
-  "description": "A plugin template for LiteLoaderQQNT, powered by Vite & Typescript",
+  "description": "A plugin template for LiteLoaderQQNT, powered by Vite & TypeScript",
   "version": "1.0.0",
   "icon": null,
+  "thumb": null,
   "authors": [
     {
       "name": "MisaLiu",

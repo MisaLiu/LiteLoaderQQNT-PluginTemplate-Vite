@@ -1,6 +1,6 @@
 import { ipcMain, BrowserWindow } from 'electron';
 
-ipcMain.on('LLTemplate-Vite.Greeting', (e, name: string) => {
+ipcMain.on('LLTemplate-Vite.Greeting', (_e, name: string) => {
   console.log('Hello, ' + name + '!');
 });
 
