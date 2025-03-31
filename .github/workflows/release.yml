@@ -22,6 +22,15 @@ jobs:
         with:
           fetch-tags: true
           fetch-depth: 0
+
+      - name: Get manifest
+        id: manifest_info
+        run: |
+          content=`cat ./manifest.json`
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          echo "::set-output name=manifest::$content"
         
       - name: Get previous tag
         id: get_previous_tag
@@ -59,7 +68,7 @@ jobs:
       - name: publish release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: ./*.zip
+          artifacts: ${{ fromJson(steps.manifest_info.outputs.manifest).slug }}.zip
           body: ${{ steps.generate_changelog.outputs.changelog }}
           makeLatest: latest
           token: ${{ secrets.GITHUB_TOKEN }}
