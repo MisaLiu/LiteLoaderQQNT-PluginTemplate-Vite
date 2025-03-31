@@ -42,7 +42,7 @@ jobs:
     - run: pnpm build
 
     - name: Upload build artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-pages-artifact@v3
       with:
         name: ${{ fromJson(steps.manifest_info.outputs.manifest).slug }}-${{ steps.git_sha.outputs.sha_short }}
         path: dist/
