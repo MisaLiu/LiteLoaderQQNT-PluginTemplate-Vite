@@ -18,16 +18,18 @@ const BaseConfig = defineViteConfig({
   },
 });
 
+const PluginChecker = viteChecker({
+  typescript: true,
+  eslint: {
+    lintCommand: 'eslint --fix src/**/* --ext .js,.jsx,.ts,.tsx',
+  },
+});
+
 const ConfigBuilder = (type: 'main' | 'preload') => defineViteConfig({
   ...BaseConfig,
 
   plugins: [
-    viteChecker({
-      typescript: true,
-      eslint: {
-        lintCommand: 'eslint --fix src/**/* --ext .js,.ts',
-      },
-    }),
+    PluginChecker,
   ],
   build: {
     minify: true,
@@ -47,12 +49,7 @@ export default defineConfig({
     ...BaseConfig,
 
     plugins: [
-      viteChecker({
-        typescript: true,
-        eslint: {
-          lintCommand: 'eslint --fix src/**/* --ext .js,.ts',
-        },
-      }),
+      PluginChecker,
       viteCp({
         targets: [{ src: './manifest.json', dest: 'dist' }],
       }),
