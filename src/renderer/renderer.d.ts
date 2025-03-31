@@ -1,8 +1,6 @@
 /// <reference types="vite/client" />
 
-declare namespace LLTemplate_Vite {
-  const greeting: (name: string) => void;
-}
+import type { IPCExports } from '../preload';
 
 type $LiteLoaderAPI = {
   openPath: (path: string) => Promise<void>,
@@ -26,6 +24,7 @@ declare interface $LiteLoader extends LiteLoader {
   api: $LiteLoaderAPI;
 }
 
-declare namespace globalThis {
+declare global {
   const LiteLoader: $LiteLoader;
+  const LLTemplate_Vite: typeof IPCExports;
 }
