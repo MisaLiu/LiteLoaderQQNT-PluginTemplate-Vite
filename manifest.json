@@ -24,7 +24,7 @@
     "renderer": "./renderer/index.js"
   },
   "repository": {
-    "repo": "MisaLiu/LietLoaderQQNT-PluginTemplate-Vite",
+    "repo": "MisaLiu/LiteLoaderQQNT-PluginTemplate-Vite",
     "branch": "master",
     "release": {
       "tag": "2.0.0",
